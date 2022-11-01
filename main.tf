@@ -21,4 +21,27 @@ resource "aws_instance" "instance_2" {
   }
 }
 
+module "website_s3_bucket" {
+  source = "./modules/aws-s3-static-website-bucket"
+
+  bucket_name = "clickittech-terraform-best-practices"
+
+  tags = {
+    Terraform   = "true"
+    Environment = "test"
+  }
+}
+
+
+module "website_s3_bucket_2" {
+  source = "./modules/aws-s3-static-website-bucket"
+
+  bucket_name = "clickittech-terraform-best-practices-bucket-2"
+
+  tags = {
+    Terraform   = "true"
+    Environment = "test"
+  }
+}
+
 
